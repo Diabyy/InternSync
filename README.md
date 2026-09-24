@@ -2,6 +2,9 @@
 
 > Aplikasi jembatan komunikasi operasional antara peserta PKL dan pembimbing lapangan industri agar alur kerja lebih transparan, terstruktur, dan minim rasa canggung.
 
+🌐 **Live Demo Website:** [https://intern-sync-opal.vercel.app/](https://intern-sync-opal.vercel.app/)  
+📁 **GitHub Repository:** [https://github.com/Diabyy/InternSync.git](https://github.com/Diabyy/InternSync.git)
+
 ---
 
 ## 1. Identifikasi Permasalahan di Industri
@@ -92,13 +95,10 @@ Aplikasi ini dibangun menggunakan arsitektur modern berbasis React:
 
 ## 5. Deployment ke Vercel
 
-Aplikasi ini dioptimalkan untuk di-deploy ke platform **Vercel**:
+Aplikasi ini telah ter-deploy dan aktif di platform **Vercel**:
 
-1. Buka [Vercel Dashboard](https://vercel.com/new).
-2. Hubungkan akun GitHub Anda dan pilih repository `Diabyy/InternSync`.
-3. Vercel akan secara otomatis mendeteksi konfigurasi Next.js.
-4. Klik tombol **Deploy**.
-5. Aplikasi akan langsung tersedia secara publik dengan domain `https://internsync.vercel.app`.
+- **Production URL:** [https://intern-sync-opal.vercel.app/](https://intern-sync-opal.vercel.app/)
+- **Otomatisasi:** Terhubung langsung dengan branch `main` pada repository GitHub `Diabyy/InternSync` (Continuous Deployment). Setiap kali ada push ke branch `main`, Vercel akan otomatis melakukan build dan deploy versi terbaru.
 
 ---
 
