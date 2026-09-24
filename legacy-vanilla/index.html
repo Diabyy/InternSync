@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="InternSync membantu peserta PKL dan pembimbing mengelola tugas, jam kerja, progres, dan blocker dalam satu tempat." />
+    <meta name="theme-color" content="#0d9488" />
+    <title>InternSync - Smart Field Mentorship</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2316324f'/%3E%3Ccircle cx='18' cy='18' r='6' fill='%23fbbf24'/%3E%3Ccircle cx='46' cy='18' r='6' fill='%2314b8a6'/%3E%3Ccircle cx='32' cy='46' r='6' fill='%23f97360'/%3E%3Cpath d='M23 20h18M21 23l8 17m14-17-8 17' stroke='white' stroke-width='4'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten</a>
+
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar" aria-label="Navigasi utama">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <div>
+            <strong>InternSync</strong>
+            <small>grow together</small>
+          </div>
+        </div>
+
+        <div class="role-switcher" aria-label="Pilih mode pengguna">
+          <span class="role-label">Mode tampilan</span>
+          <div class="role-options">
+            <button class="role-option is-active" type="button" data-role="student">
+              <span class="avatar avatar-student">A</span>
+              <span><strong>Peserta</strong><small>Andi Pratama</small></span>
+            </button>
+            <button class="role-option" type="button" data-role="mentor">
+              <span class="avatar avatar-mentor">RP</span>
+              <span><strong>Pembimbing</strong><small>Rina Putri</small></span>
+            </button>
+          </div>
+        </div>
+
+        <nav class="nav-list" id="desktop-nav">
+          <button class="nav-item is-active" type="button" data-view="dashboard" data-label="Ringkasan">
+            <span data-icon="home"></span><span>Ringkasan</span>
+          </button>
+          <button class="nav-item" type="button" data-view="tasks" data-label="Papan Tugas">
+            <span data-icon="tasks"></span><span>Papan Tugas</span><span class="nav-count" id="task-nav-count">0</span>
+          </button>
+          <button class="nav-item" type="button" data-view="blockers" data-label="Laporan Kendala">
+            <span data-icon="alert"></span><span>Laporan Kendala</span><span class="nav-count nav-count-alert" id="blocker-nav-count">0</span>
+          </button>
+          <button class="nav-item" type="button" data-view="standup" data-label="Daily Standup">
+            <span data-icon="standup"></span><span>Daily Standup</span>
+          </button>
+          <button class="nav-item" type="button" data-view="worklog" data-label="Jam Kerja">
+            <span data-icon="clock"></span><span>Jam Kerja</span>
+          </button>
+          <button class="nav-item" type="button" data-view="resources" data-label="Pusat Informasi">
+            <span data-icon="book"></span><span>Pusat Informasi</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-help">
+          <div class="help-illustration" aria-hidden="true"><span>?</span></div>
+          <strong>Butuh bantuan?</strong>
+          <p>Kirim kendala tanpa rasa sungkan. Pembimbing siap membantu.</p>
+          <button type="button" class="text-button" data-action="quick-blocker">Laporkan kendala <span aria-hidden="true">&rarr;</span></button>
+        </div>
+
+        <button class="reset-button" type="button" id="reset-demo"><span data-icon="reset"></span> Reset data demo</button>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+      <div class="app-main">
+        <header class="topbar">
+          <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Buka menu" aria-expanded="false">
+            <span data-icon="menu"></span>
+          </button>
+          <div class="topbar-title">
+            <span class="eyebrow" id="page-eyebrow">RUANG KERJA PKL</span>
+            <h1 id="page-title">Ringkasan</h1>
+          </div>
+          <div class="topbar-actions">
+            <div class="today-chip"><span data-icon="calendar"></span><span id="today-label"></span></div>
+            <button class="notification-button" type="button" aria-label="Notifikasi">
+              <span data-icon="bell"></span><span class="notification-dot"></span>
+            </button>
+            <div class="topbar-avatar" id="topbar-avatar">A</div>
+          </div>
+        </header>
+
+        <main id="main-content" tabindex="-1">
+          <div id="app-content" aria-live="polite"></div>
+        </main>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigasi seluler">
+      <button class="mobile-nav-item is-active" type="button" data-view="dashboard"><span data-icon="home"></span><span>Beranda</span></button>
+      <button class="mobile-nav-item" type="button" data-view="tasks"><span data-icon="tasks"></span><span>Tugas</span></button>
+      <button class="mobile-action" type="button" data-action="quick-blocker" aria-label="Laporkan kendala"><span data-icon="plus"></span></button>
+      <button class="mobile-nav-item" type="button" data-view="standup"><span data-icon="standup"></span><span>Standup</span></button>
+      <button class="mobile-nav-item" type="button" data-view="worklog"><span data-icon="clock"></span><span>Jam kerja</span></button>
+    </nav>
+
+    <div class="modal-layer" id="modal-layer" aria-hidden="true"></div>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
